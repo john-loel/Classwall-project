@@ -4,14 +4,13 @@ session_start();
 
 require_once "db.php";
 
-// Count visits
+
 $_SESSION['visits'] = ($_SESSION['visits'] ?? 0) + 1;
 
-// Get remembered name
+
 $rememberedName = $_COOKIE['remembered_name'] ?? "";
 $error = "";
 
-// Save message
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     $author = trim($_POST['author'] ?? "");
@@ -44,7 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     }
 }
 
-// Search messages
+
 $search = trim($_GET['search'] ?? "");
 
 if ($search !== "") {
@@ -69,7 +68,7 @@ if ($search !== "") {
 
 $messages = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-// Escape output
+
 function escape($value) {
     return htmlspecialchars($value, ENT_QUOTES, 'UTF-8');
 }
