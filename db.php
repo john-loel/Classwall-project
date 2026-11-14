@@ -5,7 +5,7 @@ $host = "localhost";
 $port = "5432";
 $dbname = "classwall";
 $username = "postgres";
-$password = "loel0403";
+$password = "I change it for awareness";
 
 try {
     $pdo = new PDO(
